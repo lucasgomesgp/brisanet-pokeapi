@@ -1,16 +1,25 @@
-import { Card } from "../../components/Card";
+import { useNavigate } from "react-router-dom";
 import { Navbar } from "../../components/Navbar";
 import { ThemeSwitcher } from "../../components/ThemeSwitcher";
-import { colors } from "../../hooks/useColors";
-import { ContainerCard } from "./styles";
+import { ContainerCard, EmptyFavorites, AstronautImg, Title, SubTitle, SearchBtn } from "./styles";
 
 export function Favorites() {
+    let navigate = useNavigate();
+
+    function redirectToSearch(){
+        navigate("/pokemon/search");
+    }
+    
     return (
         <>
             <Navbar />
             <ContainerCard>
-                {/* <Card cardColor={colors.primary} colorText={colors.grey500} />
-                <Card cardColor={colors.danger} colorText={colors.white} /> */}
+                <EmptyFavorites>
+                    <AstronautImg src="/assets/astronaut.png" alt="Astronauta" />
+                    <Title>Está meio vazio por aqui!</Title>
+                    <SubTitle>Procure por pokémons para adicioná-los aos seus favoritos.</SubTitle>
+                    <SearchBtn onClick={redirectToSearch}>Procurar pokémons</SearchBtn>
+                </EmptyFavorites>
             </ContainerCard>
             <ThemeSwitcher />
         </>

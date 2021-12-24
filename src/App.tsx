@@ -12,13 +12,13 @@ function App() {
     <>
       <AuthProvider>
         <GlobalTheme />
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/pokemon/fav" element={<Favorites />} />
-            <Route path="/pokemon/search" element={<Search />} />
-            <Route path="/pokemon/all" element={<AllPokemons />} />
-            <Route path="/pokemon/nofav" element={<NoFavorites />} />
-          </Routes>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/pokemon/fav" element={<Favorites />} />
+          <Route path="/pokemon/search" element={<Search />} />
+          <Route path="/pokemon/all" element={<AllPokemons />} />
+          <Route path="/pokemon/nofav" element={<NoFavorites />} />
+        </Routes>
       </AuthProvider>
     </>
   );

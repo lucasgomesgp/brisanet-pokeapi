@@ -6,7 +6,9 @@ interface CardProps{
     id: string;
     cardColor?: string;
     colorText?: string;
-    categories?: {};
+    categories?: {
+        
+    };
 }
 
 export function Card({ src, name, id, cardColor, colorText }: CardProps) {
@@ -20,14 +22,14 @@ export function Card({ src, name, id, cardColor, colorText }: CardProps) {
             <IdPokemon>
                 ID: {id}
             </IdPokemon>
-            {/* <Categorias>
-                <Categoria bgCard={cardColor} bgText={colorText}>
+            <Categorias>
+                {/* <Categoria bgCard={cardColor} bgText={colorText}>
                     Elétrico
                 </Categoria>
                 <Categoria bgCard={cardColor} bgText={colorText}>
                     Fire
-                </Categoria>
-            </Categorias> */}
+                </Categoria> */}
+            </Categorias>
             <BtnDetails>
                 Ver detalhes
             </BtnDetails>

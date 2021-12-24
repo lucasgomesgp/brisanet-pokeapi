@@ -4,7 +4,7 @@ import { Navbar } from "../../components/Navbar";
 import { ThemeSwitcher } from "../../components/ThemeSwitcher";
 import { CardErrorTitle, Cards } from "./styles";
 
-export interface Pokemon{
+export interface Pokemon {
     id: string;
     name: string;
     sprites: {
@@ -32,7 +32,6 @@ export function AllPokemons() {
                     console.log(err);
                 });
         }
-        console.log(pokemons);
     }, []);
 
     return (
@@ -40,7 +39,10 @@ export function AllPokemons() {
             <Navbar />
             <ThemeSwitcher />
             <Cards>
-                {pokemons.length >= 1 ? (
+                {
+                    console.log(pokemons)
+                }
+                {pokemons.length > 1 ? (
                     pokemons.map((pokemon) => (
                         <Card
                             src={pokemon.sprites.other.dream_world.front_default}
@@ -50,7 +52,7 @@ export function AllPokemons() {
                         />
                     ))
                 ) : (
-                    <CardErrorTitle>Loading Pokemons</CardErrorTitle>
+                    <CardErrorTitle>Carregando Pokemons</CardErrorTitle>
                 )}
             </Cards>
         </>
