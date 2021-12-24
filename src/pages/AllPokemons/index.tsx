@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import { Card } from "../../components/Card";
 import { Navbar } from "../../components/Navbar";
 import { ThemeSwitcher } from "../../components/ThemeSwitcher";
+import { PokemonContext } from "../../hooks/contexts/PokemonContext";
 import { CardErrorTitle, Cards } from "./styles";
 
 export interface Pokemon {
@@ -16,39 +17,20 @@ export interface Pokemon {
     };
 };
 export function AllPokemons() {
-    const [pokemons, setPokemons] = useState<Pokemon[]>([]);
-    let limit = 20;
-
-    useEffect(() => {
-        for (let i = 1; i <= limit; i++) {
-            fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
-                .then((response) => response.json())
-                .then((data) => {
-                    let previousState = pokemons;
-                    previousState.push(data);
-                    setPokemons(previousState);
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
-        }
-    }, []);
+    const { pokemons } = useContext(PokemonContext);
 
     return (
         <>
             <Navbar />
             <ThemeSwitcher />
             <Cards>
-                {
-                    console.log(pokemons)
-                }
                 {pokemons.length > 1 ? (
                     pokemons.map((pokemon) => (
                         <Card
                             src={pokemon.sprites.other.dream_world.front_default}
                             name={pokemon.name}
                             id={pokemon.id}
-                            key={pokemon.id + "." + pokemon.name}
+                            key={pokemon.id + "." + pokemon.name+"."+Date.now()}
                         />
                     ))
                 ) : (

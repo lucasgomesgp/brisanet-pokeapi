@@ -13,18 +13,17 @@ import {
     BgPokemons,
 } from "./styles";
 
-interface User {
-    email?: string;
-    password?: string;
-}
-
 export function Login() {
     const { signIn } = useContext(AuthContext);
-    const [userSignIn, setUserSignIn] = useState<User>({});
-
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    
     function handleLogin(event: FormEvent) {
         event.preventDefault();
-        signIn(userSignIn);
+        signIn({
+            email,
+            password
+        });
     }
 
     return (
@@ -36,14 +35,14 @@ export function Login() {
                     <Input
                         type="email"
                         placeholder="Email"
-                        value={userSignIn?.email}
-                        onChange={(event) => setUserSignIn({ email: event.target.value })}
+                        value={email}
+                        onChange={(event) => setEmail(event.target.value)}
                     />
                     <Input
                         type="password"
                         placeholder="Senha"
-                        value={userSignIn?.password}
-                        onChange={(event) => setUserSignIn({ password: event.target.value })}
+                        value={password}
+                        onChange={(event) => setPassword(event.target.value)}
                     />
                     <Button>Entrar</Button>
                 </Form>
