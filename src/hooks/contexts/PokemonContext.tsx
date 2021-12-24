@@ -9,7 +9,6 @@ interface PokemonProps {
 
 interface PokemonsContextProps {
     pokemons: Pokemon[];
-
 }
 export default function PokemonProvider(props: PokemonProps) {
     const [pokemons, setPokemons] = useState<Pokemon[]>([]);

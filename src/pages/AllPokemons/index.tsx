@@ -1,8 +1,7 @@
-import { useContext } from "react";
 import { Card } from "../../components/Card";
 import { Navbar } from "../../components/Navbar";
 import { ThemeSwitcher } from "../../components/ThemeSwitcher";
-import { PokemonContext } from "../../hooks/contexts/PokemonContext";
+import { usePokemons } from "../../hooks/usePokemons";
 import { CardErrorTitle, Cards } from "./styles";
 
 export interface Pokemon {
@@ -17,7 +16,7 @@ export interface Pokemon {
     };
 };
 export function AllPokemons() {
-    const { pokemons } = useContext(PokemonContext);
+    const pokemons = usePokemons();
 
     return (
         <>
@@ -30,7 +29,7 @@ export function AllPokemons() {
                             src={pokemon.sprites.other.dream_world.front_default}
                             name={pokemon.name}
                             id={pokemon.id}
-                            key={pokemon.id + "." + pokemon.name+"."+Date.now()}
+                            key={pokemon.id + "." + pokemon.name + "." + Date.now()}
                         />
                     ))
                 ) : (

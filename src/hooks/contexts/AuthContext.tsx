@@ -57,7 +57,7 @@ export function AuthProvider(props: ContextProviderProps) {
         const userSaved = localStorage.getItem("user");
         if (userSaved && !isLogged) {
             setIsLogged(true);
-            navigate("/pokemon/all");
+            navigate("/pokemon/fav");
             alert("Você já está logado!");
         } else {
             setIsLogged(true);
