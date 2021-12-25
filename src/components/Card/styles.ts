@@ -1,11 +1,6 @@
 import styled from "styled-components";
 import { colors } from "../../hooks/useColors";
 
-interface PropsBg{
-    bgCard: string;
-    bgText: string;
-}
-
 const Container = styled.div`
     width: 15.43125rem;
     height: 20.75rem;
@@ -47,15 +42,14 @@ const Categorias = styled.div`
     gap: 1rem;
 
 `;
-const Categoria = styled.div<PropsBg>`
+const Categoria = styled.div`
     width: 4.125rem;
     height: 2.25rem;
-    background: ${props => props.bgCard};
-    color: ${props => props.bgText};
     border-radius: 1rem;
     text-align: center;
     padding: 0.2rem;
 `;
+
 const BtnDetails = styled.button`
     width: 90%;
     align-self: center;

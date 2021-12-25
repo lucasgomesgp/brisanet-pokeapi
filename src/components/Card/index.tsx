@@ -1,17 +1,18 @@
 import { Container, FavIcon, ImagePokemon, Name, IdPokemon, Categorias, Categoria, BtnDetails } from "./styles";
-
-interface CardProps{
+import "./external.css";
+interface CardProps {
     name: string;
     src: string;
     id: string;
-    cardColor?: string;
-    colorText?: string;
-    categories?: {
-        
-    };
+    types: [{
+        type: {
+            name: string;
+        }
+    }]
 }
 
-export function Card({ src, name, id, cardColor, colorText }: CardProps) {
+export function Card({ src, name, id, types }: CardProps) {
+    let categories = (types.map(current => current.type.name));
     return (
         <Container>
             <FavIcon src="/assets/heart-active.svg" alt="Icone de coração" />
@@ -23,12 +24,18 @@ export function Card({ src, name, id, cardColor, colorText }: CardProps) {
                 ID: {id}
             </IdPokemon>
             <Categorias>
-                {/* <Categoria bgCard={cardColor} bgText={colorText}>
-                    Elétrico
-                </Categoria>
-                <Categoria bgCard={cardColor} bgText={colorText}>
-                    Fire
-                </Categoria> */}
+                {categories.length <= 1 ? (
+                    <Categoria className={`${categories}`}>
+                        {categories}
+                    </Categoria>
+                ) :
+                    categories.map(cat => (
+                        <Categoria className={`${cat}`}>
+                            {cat}
+                        </Categoria>
+                    ))
+
+                }
             </Categorias>
             <BtnDetails>
                 Ver detalhes

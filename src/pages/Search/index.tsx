@@ -50,6 +50,7 @@ export function Search() {
                         id={pokemonSearch.id}
                         name={pokemonSearch.name}
                         src={pokemonSearch.sprites.other.dream_world.front_default}
+                        types={pokemonSearch.types}
                     />
                 ) : (
                     <NoPokemons>Não há Pokemons no momento :(</NoPokemons>

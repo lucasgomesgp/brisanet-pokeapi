@@ -1,0 +1,47 @@
+.fire{
+    background-color: #ff0000;
+    color: #ffffff;
+}
+
+.electric{
+    background-color: #ffff00;
+    color: #ffffff;
+}
+
+.water{
+    background-color: #00a6ff;
+    color: #ffffff;
+}
+
+.poison{
+    background-color: #8a2be2;
+    color: #ffffff;
+}
+.fairy{
+    background-color: #a887c5;
+    color: #ffffff;
+}
+
+.ground{
+    background-color: #d08729;
+    color: #ffffff;
+}
+
+.bug{
+    background-color: #091959;
+    color: #ffffff;
+}
+
+.flying{
+    background-color: #72fcd2;
+    color: #ffffff;
+}
+
+.grass{
+    background-color: #17d117;
+    color: #ffffff;
+}
+
+.normal{
+    border: 0.1rem solid #000000;
+}

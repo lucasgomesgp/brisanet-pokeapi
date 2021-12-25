@@ -14,6 +14,13 @@ export interface Pokemon {
             };
         };
     };
+    types: [
+        {
+            type: {
+                name: string;
+            }
+        }
+    ]
 };
 export function AllPokemons() {
     const pokemons = usePokemons();
@@ -30,6 +37,7 @@ export function AllPokemons() {
                             name={pokemon.name}
                             id={pokemon.id}
                             key={pokemon.id + "." + pokemon.name + "." + Date.now()}
+                            types={pokemon.types}
                         />
                     ))
                 ) : (

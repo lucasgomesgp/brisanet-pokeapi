@@ -30,6 +30,7 @@ export default function PokemonProvider(props: PokemonProps) {
             }
         }
         getAllPokemons();
+        console.log(pokemons);
     }, [limit, pokemons]);
     return (
         <PokemonContext.Provider value={{ pokemons }}>
